@@ -5,6 +5,8 @@
 # enum :  random
 # Foreign key reference :
 from collections import defaultdict
+from Utils import dummy_data_value_range
+
 
 class InsertDummyData:
     def __init__(self, table_name, desired_row_count):
@@ -18,7 +20,8 @@ class InsertDummyData:
     def add_column(self, column, data_type):
         self.column_datatype[column] = data_type
 
-    def add_column_value_range(self, column, value_range):
+    def add_column_value_range(self, column):
+        value_range = dummy_data_value_range.ValueRange(self.desired_row_count)
         if self.column_datatype[column].strip().lower().startswith("var") and column.strip().lower().endswith("name"):
             self.column_value_range[column] = value_range.get_name_value_list(
                 self.col_range_properties[column]["list_of_first_names"],
