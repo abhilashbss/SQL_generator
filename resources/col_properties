@@ -1,0 +1,53 @@
+{
+    "table_name" : "tableA",
+    "row_count" : 5,
+    "columns" : [
+    {
+        "col_name" : "col1_id",
+        "data_type" : "int",
+        "data_property" : {
+        "start" : 50
+        }
+    },
+    {
+        "col_name" : "col2",
+        "data_type" : "int",
+        "data_property" : {
+        "start" : 50,
+        "end" : 100
+        }
+    },
+    {
+        "col_name" : "col3_name",
+        "data_type" : "varchar(50)",
+        "data_property" : {
+        "list_of_first_names" : ["A", "B", "C"],
+        "list_of_middle_names" : ["M", "N", "O"],
+        "list_of_last_names" : ["X", "Y", "Z"]
+        }
+    },
+    {
+        "col_name" : "col4",
+        "data_type" : "varchar(50)",
+        "data_property" : {
+        "list_of_strings" : ["AA", "BB", "CC"]
+        }
+    },
+    {
+        "col_name" : "col5",
+        "data_type" : "enum",
+        "data_property" : {
+        "enum_values" : ["AAE", "BBE", "CCE"]
+        }
+    },
+    {
+        "col_name" : "col6",
+        "data_type" : "date",
+        "data_property" : {
+        "from_date" : "12-04-2021 00:00:00",
+        "to_date" : "12-05-2021 00:00:00"
+        }
+    }
+    ]
+
+}

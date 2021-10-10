@@ -16,7 +16,10 @@ class ValueRange:
 
     def get_name_value_list(self, list_of_first_name, list_of_middle_name, list_of_last_name):
         names = [list_of_first_name, list_of_middle_name, list_of_last_name]
-        return list(itertools.product(*names))[:self.desired_col_size]
+        val = []
+        for name in list(itertools.product(*names))[:self.desired_col_size]:
+            val.append(name[0] + " " + name[1] + " " + name[2])
+        return val
 
     def get_string_value_list(self, list_of_strings):
         val = []
@@ -27,7 +30,7 @@ class ValueRange:
     def get_date_value_range(self, from_date, to_date):
         val = []
         for i in range(self.desired_col_size):
-            val.append(str_time_prop(from_date, to_date, "'%d-%m-%Y %I:%M %p'"))
+            val.append(str_time_prop(from_date, to_date, "%d-%m-%Y %H:%M:%S", random.random()))
         return val
 
     def get_int_value_range(self, lowest, highest):
@@ -38,6 +41,6 @@ class ValueRange:
 
     def get_enum_range(self, value_list):
         val = []
-        for i in random.sample(range(len(value_list)), self.desired_col_size):
-            val.append(value_list[i])
+        for i in range(self.desired_col_size):
+            val.append(value_list[random.randint(0, len(value_list) - 1)])
         return val

@@ -61,14 +61,14 @@ class InsertDummyData:
 
     def create_insert_query(self):
         columns = self.column_datatype.keys()
-        self.insert_query += "INSERT INTO " + self.table_name + " ( " + ",".join(columns) + " ) values "
+        self.insert_query += "INSERT INTO " + self.table_name + " ( " + ", ".join(columns) + " ) values "
         for index in range(self.desired_row_count):
-            self.insert_query += " ( "
+            self.insert_query += "\n ( "
             for col in columns:
                 if self.column_datatype[col].strip().lower().startswith("int"):
-                    self.insert_query += self.column_value_range[columns][index] + ","
+                    self.insert_query += str(self.column_value_range[col][index]) + ","
                 else:
-                    self.insert_query += "\'" + self.column_value_range[columns][index] + "\'" + ","
+                    self.insert_query += "\'" + str(self.column_value_range[col][index]) + "\'" + ","
             self.insert_query = self.insert_query[:-1]
             self.insert_query += " ),"
         self.insert_query = self.insert_query[:-1]
