@@ -1,0 +1,1 @@
+Employee - ID:INT:PRIMARY KEY, name:Varchar(56), office_number:int, floor_number:int, phone_number:int, email_address:varchar(16)
